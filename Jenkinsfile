@@ -21,19 +21,22 @@ pipeline {
                  /usr/local/bin/terraform init -force-copy
                  /usr/local/bin/terraform plan
                  /usr/local/bin/terraform apply -auto-approve
-                 /usr/local/bin/aws eks --region us-east-1 update-kubeconfig --name eks-kubeginners
+                 
                 '''
             }
         }
 
         stage('Deploy') {
             steps {
-                sh '''
-                    echo "deploying the application ........"
-                    /usr/local/bin/kubectl apply -f kubernetes-deployment.yml
-                    /usr/local/bin/kubectl apply -f kubernetes-service.yml
-                    /usr/local/bin/kubectl get svc eks-kubeginners-service
-                '''
+                withAWS(credentials: 'AWS Credentials', region: 'us-east-1'){
+                    sh '''
+                        echo "deploying the application ........"
+                        /usr/local/bin/aws eks --region us-east-1 update-kubeconfig --name eks-kubeginners
+                        /usr/local/bin/kubectl apply -f kubernetes-deployment.yml
+                        /usr/local/bin/kubectl apply -f kubernetes-service.yml
+                        /usr/local/bin/kubectl get svc eks-kubeginners-service
+                    '''
+                }
             }
         }
     }
