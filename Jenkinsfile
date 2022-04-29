@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh '''
                     echo "running the tests ......."
-                    kubectl version
+                    /usr/local/bin/kubectl version
                 '''
             }
         }
@@ -31,9 +31,9 @@ pipeline {
             steps {
                 sh '''
                     echo "deploying the application ........"
-                    kubectl apply -f kubernetes-deployment.yml
-                    kubectl apply -f kubernetes-service.yml
-                    kubectl get svc eks-kubeginners-service
+                    /usr/local/bin/kubectl apply -f kubernetes-deployment.yml
+                    /usr/local/bin/kubectl apply -f kubernetes-service.yml
+                    /usr/local/bin/kubectl get svc eks-kubeginners-service
                 '''
             }
         }
