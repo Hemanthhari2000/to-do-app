@@ -28,7 +28,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                withAWS(credentials: 'AWS_CREDENTIALS', region: 'us-east-1'){
+                withAWS(profile:'966185979698_Admin-Account-Access'){
                     sh '''
                         echo "deploying the application ........"
                         /usr/local/bin/aws eks --region us-east-1 update-kubeconfig --name eks-kubeginners
