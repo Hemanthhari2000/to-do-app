@@ -1,10 +1,4 @@
 fileignoreconfig:
-- filename: terraform-s3-bucket.tf
-  checksum: e8a501a14d50ccf1c3961a45cd93a88e7e3002b838ccde129bdeb1ba1f3762ee
 - filename: Jenkinsfile
-  checksum: ff8dd03b1acc6e5add65c2224c2cac1cfb28bfe1d918adb47d1281505f243c4c
-- filename: kubernetes-deployment.yml
-  checksum: bca4eca02f7bac76009f3271effa45b6ffe2ca9af8fda462a85340887df48a55
-- filename: main.tf
-  checksum: f396dba08a7c91cb8eafa6548db2370a9588ee43cae6206c7b26895dc6133cb6
+  checksum: e9c47c0019848a5e25fda1b162ebf22716ef4c16a6c75820527706b2867eac28
 version: ""
