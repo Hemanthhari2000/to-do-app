@@ -11,7 +11,6 @@ pipeline {
             steps {
                 sh '''
                     echo "running the tests ......."
-                    /usr/local/bin/kubectl version
                 '''
             }
         }
