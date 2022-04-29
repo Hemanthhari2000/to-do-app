@@ -11,6 +11,7 @@ pipeline {
             steps {
                 sh '''
                     echo "running the tests ......."
+                    kubectl version
                 '''
             }
         }
@@ -18,9 +19,9 @@ pipeline {
         stage('Terraform') {
             steps {
                 sh '''
-                 terraform init -force-copy
-                 terraform plan
-                 terraform apply -auto-approve
+                 /usr/local/bin/terraform init -force-copy
+                 /usr/local/bin/terraform plan
+                 /usr/local/bin/terraform apply -auto-approve
                  /usr/local/bin/aws eks --region us-east-1 update-kubeconfig --name eks-kubeginners
                 '''
             }
